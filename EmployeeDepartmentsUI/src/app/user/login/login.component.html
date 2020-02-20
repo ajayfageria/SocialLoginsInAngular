@@ -1,0 +1,38 @@
+<mat-card class="example-card" *ngIf="user==null">
+    <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form class="example-form ">
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width ">
+                            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="login()" style="margin-left: 10%;" color="primary">Login</button>
+    </mat-card-actions>
+    <hr>
+
+    <p> or login with</p>
+    <button class="btn btn-sm btn-google btn-group-sm text-uppercase" (click)="LoginWithGoogle()" type="submit"><i class="fa fa-google mr-2"></i>  Google</button>&nbsp;&nbsp;
+    <button class="btn btn-sm btn-google btn-group-sm text-uppercase" (click)="LoginWithFacebook()" style="background-color: #3b5998;" type="submit"><i class="fa fa-facebook mr-2"></i> facebook</button>&nbsp;&nbsp;
+    <button class="btn btn-sm btn-google btn-group-sm text-uppercase" (click)="LoginWithOkta()" style="background-color:#00ace6;" type="submit"><i class="fa fa-circle-o mr-2"></i>  okta</button>&nbsp;&nbsp;
+
+</mat-card>
+<router-outlet *ngIf="user!=null"></router-outlet>
